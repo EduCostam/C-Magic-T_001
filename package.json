@@ -1,0 +1,22 @@
+{
+  "name": "c-magic-t-001",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EduCostam/C-Magic-T_001.git"
+  },
+  "author": "Eduardo Costa",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/EduCostam/C-Magic-T_001/issues"
+  },
+  "homepage": "https://github.com/EduCostam/C-Magic-T_001#readme",
+  "dependencies": {
+    "axios": "^0.24.0"
+  }
+}
