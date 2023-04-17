@@ -1,3 +1,18 @@
 {
-  "cards": []
+  "cards": [
+    {
+      "name": "Ancient Tomb",
+      "text": "Ancient Tomb deals 2 damage to you. There is no glory to gained in the kingdom of the dead. — Vec tomb inscription",
+      "lang": "en",
+      "translatedText": "",
+      "translatedLang": "pt"
+    },
+    {
+      "name": "Arid Mesa",
+      "text": "Pay 1 life, Sacrifice Arid Mesa: Search your library for a Mountain or Plains card, put it onto the battlefield, then shuffle.",
+      "lang": "en",
+      "translatedText": "",
+      "translatedLang": "pt"
+    }
+  ]
 }
