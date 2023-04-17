@@ -1,11 +1,3 @@
 {
-  "cards": [
-    {
-      "name": "Black Lotus",
-      "text": "Adds 3 mana of any single color of your choice to your mana pool, then is discarded. Tapping this artifact can be played as an interrupt.",
-      "lang": "en",
-      "translatedText": "en",
-      "translatedLang": "pt"
-    }
-  ]
+  "cards": []
 }

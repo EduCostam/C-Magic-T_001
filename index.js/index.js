@@ -15,6 +15,18 @@ const targetLanguage = "pt";
 // Ler arquivo com as cartas
 const cards = JSON.parse(fs.readFileSync("cards.json"));
 
+const cards = {
+  card1: "This is card one",
+  card2: "This is card two",
+  card3: "This is card three",
+};
+
+const cardsArray = Object.values(cards);
+
+cards = {
+  card4: "Esta é a carte 4",
+};
+
 // Traduzir o texto de cada carta
 async function translateCards() {
   for (const card of cards) {
