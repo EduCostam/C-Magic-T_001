@@ -17,8 +17,11 @@
   },
   "homepage": "https://github.com/EduCostam/C-Magic-T_001#readme",
   "dependencies": {
+    "@google-cloud/translate": "^7.2.1",
     "axios": "^0.24.0",
     "cheerio": "^1.0.0-rc.12",
+    "deepl-translator": "^1.2.1",
+    "nltk": "^0.0.1",
     "request-promise-native": "^1.0.9"
   }
 }

@@ -1,6 +1,56 @@
 const request = require("request-promise-native");
 const cheerio = require("cheerio");
 const fs = require("fs");
+const DeepL = require("deepl-translator");
+
+const { Translate } = require("@google-cloud/translate").v2;
+
+// Configurar credenciais do Google Cloud
+const translate = new Translate({ keyFilename: "google-credentials.json" });
+
+// Definir idiomas de origem e destino
+const sourceLanguage = "en";
+const targetLanguage = "pt";
+
+// Ler arquivo com as cartas
+const cards = JSON.parse(fs.readFileSync("cards.json"));
+
+// Traduzir o texto de cada carta
+async function translateCards() {
+  for (const card of cards) {
+    const [translation] = await translate.translate(card.text, targetLanguage, {
+      from: sourceLanguage,
+    });
+    card.translatedText = translation;
+  }
+}
+
+// Salvar arquivo com as cartas traduzidas
+translateCards()
+  .then(() => {
+    fs.writeFileSync("cards-translated.json", JSON.stringify(cards));
+    console.log("Cards successfully saved to cards-translated.json");
+  })
+  .catch((err) => {
+    console.error(err);
+  });
+
+const description =
+  "Whenever a creature you control deals combat damage to a player, create a Treasure token.";
+
+(async () => {
+  try {
+    const translation = await DeepL.translation({
+      text: description,
+      target_lang: "pt",
+      auth_key: "sua_chave_de_api_DeepL",
+    });
+
+    console.log(translation);
+  } catch (error) {
+    console.error(error);
+  }
+})();
 
 const url = "https://tappedout.net/mtg-decks/primal-rain-2/?cb=1681526968";
 
@@ -16,14 +66,15 @@ const url = "https://tappedout.net/mtg-decks/primal-rain-2/?cb=1681526968";
       const amount = $(element).find("td.amount").text().trim();
       const edition = $(element).find("td.language").text().trim();
 
-      if (language === "English") {
+      if (edition === "English") {
+        // corrigido o nome da variável e adicionado uma condição para verificar a edição
         cards.push({ name, amount, edition });
       }
     });
 
     const json = JSON.stringify({ cards }, null, 2);
     fs.writeFileSync("cards.json", json);
-    console.log("Cards successfuly saved to cards.json");
+    console.log("Cards successfully saved to cards.json");
   } catch (err) {
     console.log(err);
   }
