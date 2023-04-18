@@ -40,7 +40,7 @@ translateCards()
 const description =
   "Whenever a creature you control deals combat damage to a player, create a Treasure token.";
 
-(async () => {
+async () => {
   try {
     const translation = await DeepL.translation({
       text: description,
@@ -52,7 +52,7 @@ const description =
   } catch (error) {
     console.error(error);
   }
-})();
+};
 
 const url = "https://tappedout.net/mtg-decks/primal-rain-2/?cb=1681526968";
 
